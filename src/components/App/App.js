@@ -25,6 +25,22 @@ export default class App extends React.Component {
           'album': 'Album 2',
           'id': '002'
         },
+      ],
+      playlistName: 'Mi playlist de prueba',
+      playlistTracks: [
+
+        {
+          'name': 'Mi Canción 1',
+          'artist': 'Artista 1',
+          'album': 'Album 1',
+          'id': '001'
+        },
+        {
+          'name': 'Mi Canción 2',
+          'artist': 'Artista 2',
+          'album': 'Album 2',
+          'id': '002'
+        },
       ]
     }
   }
