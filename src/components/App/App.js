@@ -10,6 +10,7 @@ export default class App extends React.Component {
 
   constructor(props) {
     super(props)
+    // hard-coding valores iniciales de search results
     this.state = {
       searchResults: ['name', 'artist', 'album', 'id']
     }
