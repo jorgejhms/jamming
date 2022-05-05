@@ -1,15 +1,13 @@
-// import '../TrackList/TrackList'
+import React from 'react';
 
-function SearchResults() {
+export default class SearchResults extends React.Component {
+  render() {
+    return (
+      <div className="SearchResults">
+        <h2>Results</h2>
+        // <TrackList />
+      </div>
+    )
 
-
-  return (
-    <div className="SearchResults">
-      <h2>Results</h2>
-      // <TrackList />
-    </div>
-  )
-
+  }
 }
-
-export default SearchResults
