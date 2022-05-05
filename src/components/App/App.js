@@ -12,7 +12,20 @@ export default class App extends React.Component {
     super(props)
     // hard-coding valores iniciales de search results
     this.state = {
-      searchResults: ['name', 'artist', 'album', 'id']
+      searchResults: [
+        {
+          'name': 'Canción 1',
+          'artist': 'Artista 1',
+          'album': 'Album 1',
+          'id': '001'
+        },
+        {
+          'name': 'Canción 2',
+          'artist': 'Artista 2',
+          'album': 'Album 2',
+          'id': '002'
+        },
+      ]
     }
   }
 
