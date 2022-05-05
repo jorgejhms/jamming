@@ -1,10 +1,15 @@
 // import '../TrackList/TrackList'
 
 function SearchResults() {
-  return (
-    <div className="SearchResults">
-      <h2>Results</h2>
+  render() {
+
+    return (
+      <div className="SearchResults">
+        <h2>Results</h2>
       // <TrackList />
-    </div>
-  )
+      </div>
+    )
+  }
 }
+
+export default SearchResults
