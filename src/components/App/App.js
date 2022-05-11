@@ -43,6 +43,18 @@ export default class App extends React.Component {
         },
       ]
     }
+    // Binding methods
+    this.addTrack = this.addTrack.bind(this);
+  }
+
+  // Methods
+  addTrack(track) {
+    // Añade una cacnción a la playlist state
+    if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+      return;
+    } else {
+      this.state.playlistTracks.push(track);
+    }
   }
 
   render() {
@@ -52,7 +64,7 @@ export default class App extends React.Component {
         <div className="App">
           <SearchBar />
           <div className="App-playlist">
-            <SearchResults searchResults={this.state.searchResults} />
+            <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
             <Playlist
               playlistName={this.state.playlistName}
               playlistTracks={this.state.playlistTracks}
