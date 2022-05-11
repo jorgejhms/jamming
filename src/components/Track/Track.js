@@ -10,8 +10,8 @@ export default class Track extends React.Component {
     }
   }
 
-  addTrack(this.props.track) {
-
+  addTrack() {
+    this.props.track = this.props.addTrack;
   }
 
   render() {
