@@ -21,6 +21,10 @@ export default class Track extends React.Component {
     this.props.track = this.props.addTrack;
   }
 
+  removeTrack() {
+
+  }
+
   render() {
     return (
       <div className="Track">
