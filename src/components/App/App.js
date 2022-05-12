@@ -45,6 +45,7 @@ export default class App extends React.Component {
     }
     // Binding methods
     this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
   }
 
   // Methods
@@ -57,6 +58,13 @@ export default class App extends React.Component {
     }
   }
 
+  removeTrack(track) {
+    // Elimina una cacnción de la lista de playlist
+    if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+      this.state.playlistTracks = this.state.playlistTracks.filter(track.id)
+    }
+  }
+
   render() {
     return (
       <div>
@@ -64,7 +72,7 @@ export default class App extends React.Component {
         <div className="App">
           <SearchBar />
           <div className="App-playlist">
-            <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
+            <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} onRemove={this.removeTrack} />
             <Playlist
               playlistName={this.state.playlistName}
               playlistTracks={this.state.playlistTracks}
