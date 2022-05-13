@@ -11,6 +11,7 @@ class Track extends React.Component {
   }
 
   renderAction() {
+    // Dependiendo de la propiedad del track renderiza boton + o -
     if (this.props.isRemoval) {
       return <button className='Track-action'>-</button>
     } else {
