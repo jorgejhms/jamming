@@ -60,10 +60,10 @@ class App extends React.Component {
   }
 
   removeTrack(track) {
-    // Elimina una cacnción de la lista de playlist
-    if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
-      this.state.playlistTracks = this.state.playlistTracks.filter(track.id)
-    }
+    // Elimina una canción de la lista de playlist
+    let tracks = this.state.playlistTracks;
+    tracks = tracks.filter(currentTrack => currentTrack.id !== track.id);
+    this.setState({ playlistTracks: tracks })
   }
 
   render() {
@@ -81,6 +81,8 @@ class App extends React.Component {
             <Playlist
               playlistName={this.state.playlistName}
               playlistTracks={this.state.playlistTracks}
+              onRemove={this.removeTrack}
+              isRemoval={true}
             />
           </div>
         </div>
