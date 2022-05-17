@@ -9,7 +9,7 @@ import Playlist from '../Playlist/Playlist';
 class App extends React.Component {
 
   constructor(props) {
-    super(props)
+    super(props);
     // hard-coding valores iniciales de search results
     this.state = {
       searchResults: [
@@ -33,16 +33,16 @@ class App extends React.Component {
           'name': 'Mi Canción 1',
           'artist': 'Artista 1',
           'album': 'Album 1',
-          'id': '001'
+          'id': 'A01'
         },
         {
           'name': 'Mi Canción 2',
           'artist': 'Artista 2',
           'album': 'Album 2',
-          'id': '002'
+          'id': 'A02'
         },
       ]
-    }
+    };
     // Binding methods
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
@@ -50,12 +50,13 @@ class App extends React.Component {
 
   // Methods
   addTrack(track) {
-    // Añade una cacnción a la playlist state
-    if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
+    // Añade una canción a la playlist state
+    let tracks = this.state.playlistTracks;
+    if (tracks.find(savedTrack => savedTrack.id === track.id)) {
       return;
-    } else {
-      this.state.playlistTracks.push(track);
     }
+    tracks.push(track);
+    this.setState({ playlistTracks: tracks })
   }
 
   removeTrack(track) {
