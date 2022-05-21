@@ -13,36 +13,9 @@ class App extends React.Component {
     super(props);
     // hard-coding valores iniciales de search results
     this.state = {
-      searchResults: [
-        {
-          'name': 'Canción 1',
-          'artist': 'Artista 1',
-          'album': 'Album 1',
-          'id': '001'
-        },
-        {
-          'name': 'Canción 2',
-          'artist': 'Artista 2',
-          'album': 'Album 2',
-          'id': '002'
-        },
-      ],
+      searchResults: [],
       playlistName: 'Mi playlist de prueba',
-      playlistTracks: [
-
-        {
-          'name': 'Mi Canción 1',
-          'artist': 'Artista 1',
-          'album': 'Album 1',
-          'id': 'A01'
-        },
-        {
-          'name': 'Mi Canción 2',
-          'artist': 'Artista 2',
-          'album': 'Album 2',
-          'id': 'A02'
-        },
-      ]
+      playlistTracks: []
     };
     // Binding methods
     this.addTrack = this.addTrack.bind(this);
@@ -76,6 +49,12 @@ class App extends React.Component {
 
   savePlaylist() {
     const trackURIs = this.state.playlistTracks.map(track => track.uri);
+    Spotify.savePlaylist(this.state.playlistName, trackURIs).then(() => {
+      this.setState({
+        playlistName: 'New Playlist',
+        playlistTracks: []
+      })
+    })
   }
 
   search(term) {
