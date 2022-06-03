@@ -20,8 +20,7 @@ export default function App() {
     if (tracks.find(savedTrack => savedTrack.id === track.id)) {
       return;
     }
-    tracks.push(track);
-    setPlaylistTracks(tracks)
+    setPlaylistTracks(prev => [track, ...prev])
   }
 
   const removeTrack = track => {
@@ -58,7 +57,7 @@ export default function App() {
           <SearchResults
             searchResults={searchResults}
             onAdd={addTrack}
-            onRemove={removeTrack}
+            // onRemove={removeTrack}
           />
           <Playlist
             playlistName={playlistName}
