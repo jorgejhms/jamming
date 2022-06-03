@@ -6,8 +6,12 @@ export default function App(props) {
   const [term, setTerm] = useState([]);
 
   // Métodos
-  const search = () => {
-    // Busca término ingresado en el input
+  // const search = () => {
+  //   // Busca término ingresado en el input
+  //   props.onSearch(term);
+  // };
+  const handleSubmit = (event) => {
+    event.preventDefault();
     props.onSearch(term);
   };
 
@@ -18,13 +22,13 @@ export default function App(props) {
 
   return (
     <div className="SearchBar">
-      <input
-        placeholder="Enter A Song, Album, or Artist"
-        onChange={handleTermChange}
-      />
-      <button className="SearchButton" onClick={search}>
-        SEARCH
-      </button>
+      <form onSubmit={handleSubmit}>
+        <input
+          placeholder="Enter A Song, Album, or Artist"
+          onChange={handleTermChange}
+        />
+        <button className="SearchButton">SEARCH</button>
+      </form>
     </div>
   );
 }
@@ -59,4 +63,3 @@ export default function App(props) {
 // }
 
 // export default SearchBar
-
