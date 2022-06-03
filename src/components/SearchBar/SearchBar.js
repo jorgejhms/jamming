@@ -1,34 +1,62 @@
-import React from 'react';
-import './SearchBar.css';
+import React, { useState } from "react";
+import "./SearchBar.css";
 
-class SearchBar extends React.Component {
+export default function App(props) {
+  // Definiendo estados
+  const [term, setTerm] = useState([]);
 
-  constructor(props) {
-    super(props);
-    this.state = { term: '' }
-    this.search = this.search.bind(this);
-    this.handleTermChange = this.handleTermChange.bind(this);
-  }
+  // Métodos
+  const search = () => {
+    // Busca término ingresado en el input
+    props.onSearch(term);
+  };
 
-  search() {
-    this.props.onSearch(this.state.term)
-  }
+  const handleTermChange = (event) => {
+    // Reacciona al tipeo en el input
+    setTerm(event.target.value);
+  };
 
-  handleTermChange(event) {
-    this.setState({ term: event.target.value })
-  }
-
-  render() {
-    return (
-      <div className="SearchBar">
-        <input
-          placeholder="Enter A Song, Album, or Artist"
-          onChange={this.handleTermChange}
-        />
-        <button className="SearchButton" onClick={this.search}>SEARCH</button>
-      </div>
-    )
-  }
+  return (
+    <div className="SearchBar">
+      <input
+        placeholder="Enter A Song, Album, or Artist"
+        onChange={handleTermChange}
+      />
+      <button className="SearchButton" onClick={search}>
+        SEARCH
+      </button>
+    </div>
+  );
 }
+// class SearchBar extends React.Component {
 
-export default SearchBar
+//   constructor(props) {
+//     super(props);
+//     this.state = { term: '' }
+//     this.search = this.search.bind(this);
+//     this.handleTermChange = this.handleTermChange.bind(this);
+//   }
+
+//   search() {
+//     this.props.onSearch(this.state.term)
+//   }
+
+//   handleTermChange(event) {
+//     this.setState({ term: event.target.value })
+//   }
+
+//   render() {
+//     return (
+//       <div className="SearchBar">
+//         <input
+//           placeholder="Enter A Song, Album, or Artist"
+//           onChange={this.handleTermChange}
+//         />
+//         <button className="SearchButton" onClick={this.search}>SEARCH</button>
+//       </div>
+//     )
+//   }
+// }
+
+// export default SearchBar
+
